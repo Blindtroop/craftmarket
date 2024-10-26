@@ -3,60 +3,39 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="relative bg-custom-blue mx-auto h-full py-28 sm:max-w-xl md:max-w-full md:px-24 md:py-40 lg:px-9 lg:mx-6">
-      {/* Background image */}
-      <div className="absolute inset-0 bg-[url('https://i.imgur.com/tmmSn07.png')] bg-cover bg-center opacity-10"></div>
-      
-      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center"> {/* Centering items */}
-        
-        <div className="lg:max-w-lg text-center lg:text-left lg:pr-10"> {/* Center text, add right padding */}
-          <p className="flex text-sm uppercase text-gray-300 justify-center mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="mr-1 inline h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Find Your Dream Car Today
+    <div className="bg-gray-900">
+    <section className=" mx-auto max-w-screen-xl max-h-110 pt-12 pb-12 px-4 items-center lg:flex md:px-8">
+      <div className="space-y-4 flex-1 sm:text-center lg:text-left">
+          <h1 className="text-white font-bold text-4xl xl:text-5xl">
+            Find Your Dream Car Today with  
+            <span className="text-indigo-400"> Class & Style</span>
+          </h1>
+          <p className="text-gray-300 max-w-xl leading-relaxed sm:mx-auto lg:ml-0">
+            We make you drive classy with a smooth, effortless car rental experience.
           </p>
-          <h2 className="mb-4 max-w-lg text-5xl font-bold leading-snug tracking-tight text-white sm:text-7xl">
-            We make you drive{" "}
-            <span className="my-1 inline-block border-b-8 border-white bg-custom-orange 400 px-4 font-bold">
-              classy
-            </span>
-          </h2>
-          <p className="text-base text-gray-400 mb-4">
-          </p>
-          <div className="mt-6 flex flex-col items-center"> {/* Center buttons */}
-            
+          <div className="pt-10 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start">
             <a
-              href="/"
-              className="group inline-flex items-center font-semibold text-white"
+              href="javascript:void(0)"
+              className="px-7 py-3 w-full bg-white text-gray-800 text-center rounded-md shadow-md block sm:w-auto"
             >
-              Browse
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="group-hover:translate-x-2 ml-4 h-6 w-6 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              Explore Cars
+            </a>
+            <a
+              href="javascript:void(0)"
+              className="px-7 py-3 w-full bg-gray-700 text-gray-200 text-center rounded-md block sm:w-auto"
+            >
+              Browse Collection
             </a>
           </div>
         </div>
-
-        {/* The image is now a background, so this section is removed */}
-        
-      </div>
+        <div className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3">
+          <img
+            src="https://i.imgur.com/tmmSn07.png"
+            className="w-full mx-auto sm:w-10/12 lg:w-full"
+            alt="Dream Car"
+          />
+        </div>
+      </section>
     </div>
   );
 };
