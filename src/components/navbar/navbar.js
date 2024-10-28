@@ -1,11 +1,10 @@
-// Navbar.js
 import React from "react";
 
 const Navbar = () => {
   return (
     <header className="relative flex flex-col bg-gray-900 overflow-hidden px-2 py-4 text-custom-orange md:mx-auto md:flex-row md:items-center">
       <a
-        href="#"
+        href="/"
         className="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black text-custom-orange"
       >
         <img
@@ -17,7 +16,7 @@ const Navbar = () => {
       </a>
       <input type="checkbox" className="peer hidden" id="navbar-open" />
       <label
-        className="absolute top-5 right-7 cursor-pointer  md:hidden"
+        className="absolute top-5 right-7 cursor-pointer md:hidden"
         htmlFor="navbar-open"
       >
         <span className="sr-only">Toggle Navigation</span>
@@ -41,7 +40,7 @@ const Navbar = () => {
             <a href="/">Home</a>
           </li>
           <li className="font-bold text-custom-orange md:mr-12">
-            <a href="home">Collection</a>
+            <a href="/home">Collection</a>
           </li>
           <li className="md:mr-12">
             <button className="font-bold rounded-full border-2 border-custom-orange px-6 py-1 text-custom-orange transition-colors hover:bg-gray hover:text-red-700">
@@ -55,4 +54,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -7,8 +7,8 @@ const CardComponent = ({ cardData }) => {
         <img
           src={cardData.imgSrc}
           alt={cardData.title}
-          style={{ width: "100%", height: "300px", objectFit: "cover" }} // Fixed borderRadius
-          className="rounded-lg " // Ensures images have a rounded-lg class
+          className="sm:h-[150px]"
+          style={{ width: "68%", height: "250px", objectFit: "contain" }}
         />
         <h5 className="text-xl font-semibold tracking-tight text-custom-dark-gray">
           {cardData.title}
@@ -27,3 +27,4 @@ const CardComponent = ({ cardData }) => {
 };
 
 export default CardComponent;
+

@@ -27,7 +27,8 @@ const Footer = () => {
                 <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
                     <img src="https://i.imgur.com/PMVjBLQ.png" className="w-32 sm:mx-auto" alt="Logo" />
                     <p>
-                        Nulla auctor metus vitae lectus iaculis, vel euismod massa efficitur.
+                        Delivering cars you need, Driving your dreams to your doorstep,
+                        Bridging the gap between desire and driveway
                     </p>
                     <div className="items-center gap-x-3 space-y-3 sm:flex sm:justify-center sm:space-y-0">
                         <a href="Home" className="block py-2 px-4 text-center text-custom-orange font-medium bg-black-600 border border-custom-orange duration-150 hover:border-black-900 active:bg-black-9700 rounded-lg shadow-lg hover:shadow-none">
@@ -37,7 +38,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="mt-10 py-10 border-t items-center justify-between sm:flex">
-                    <p>© 2022 Float UI Inc. All rights reserved.</p>
+                    <p>© Brian Mburu 2024. All rights reserved.</p>
                     <ul className="flex flex-wrap items-center gap-4 mt-6 sm:text-sm sm:mt-0">
                         {
                             footerNavs.map((item, idx) => (
