@@ -38,17 +38,14 @@ const Navbar = () => {
       >
         <ul className="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
           <li className="font-bold text-black-100 md:mr-12">
-            <a href="#">Pricing</a>
+            <a href="#">Home</a>
           </li>
           <li className="text-black-100 md:mr-12">
-            <a href="#">Features</a>
-          </li>
-          <li className="text-black-100 md:mr-12">
-            <a href="#">Support</a>
+            <a href="#">Collection</a>
           </li>
           <li className="md:mr-12">
             <button className="rounded-full border-2 border-black px-6 py-1 font-medium text-black transition-colors hover:bg-gray hover:text-red-700">
-              Login
+              Cart
             </button>
           </li>
         </ul>
