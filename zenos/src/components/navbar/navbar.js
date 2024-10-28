@@ -3,10 +3,10 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <header className="relative flex flex-col overflow-hidden px-2 py-4 text-blue-900 md:mx-auto md:flex-row md:items-center">
+    <header className="relative flex flex-col bg-gray-900 overflow-hidden px-2 py-4 text-custom-orange md:mx-auto md:flex-row md:items-center">
       <a
         href="#"
-        className="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black text-blue-500"
+        className="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black text-custom-orange"
       >
         <img
           src="https://i.imgur.com/PY2trC2.png" // URL of the car icon
@@ -17,7 +17,7 @@ const Navbar = () => {
       </a>
       <input type="checkbox" className="peer hidden" id="navbar-open" />
       <label
-        className="absolute top-5 right-7 cursor-pointer text-blue-600 md:hidden"
+        className="absolute top-5 right-7 cursor-pointer  md:hidden"
         htmlFor="navbar-open"
       >
         <span className="sr-only">Toggle Navigation</span>
@@ -37,14 +37,14 @@ const Navbar = () => {
         className="peer-checked:mt-8 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start"
       >
         <ul className="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
-          <li className="font-bold text-black-100 md:mr-12">
+          <li className="font-bold text-custom-orange md:mr-12">
             <a href="#">Home</a>
           </li>
-          <li className="text-black-100 md:mr-12">
+          <li className="font-bold text-custom-orange md:mr-12">
             <a href="#">Collection</a>
           </li>
           <li className="md:mr-12">
-            <button className="rounded-full border-2 border-black px-6 py-1 font-medium text-black transition-colors hover:bg-gray hover:text-red-700">
+            <button className="font-bold rounded-full border-2 border-custom-orange px-6 py-1 text-custom-orange transition-colors hover:bg-gray hover:text-red-700">
               Cart
             </button>
           </li>

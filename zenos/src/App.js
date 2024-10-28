@@ -2,24 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/navbar';
-import Home from './components/Home/Home'
-import HomePage from './components/Home Page/HomePage'; // Import the new HomePage component
-import CardGrid from './components/Card grid/CardGrid';
+import Home from './components/Home/Home';
+import Hero from './components/hero/hero';  // Import the Hero component
+import CardGrid from './components/Card grid/CardGrid';  // Import CardGrid correctly
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login/login';
-import Footer from './components/Footer/footer'
+import Footer from './components/Footer/footer';  // Import Footer
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from './components/firebase/config'; 
+import { auth } from './components/firebase/config';
 
 function ProtectedRoute({ children, isAdmin, user }) {
   if (!user) {
     return <Navigate to="/login" replace />;
   }
-  
+
   if (!isAdmin) {
     return <Navigate to="/" replace />;
   }
-  
+
   return children;
 }
 
@@ -31,7 +31,6 @@ function App() {
   useEffect(() => {
     const verifyAdmin = () => {
       if (user) {
-        // Check if the user email matches the admin email
         setIsAdmin(user.email && user.email.toLowerCase() === 'admin@gmail.com'); // Adjust admin email as necessary
       } else {
         setIsAdmin(false);
@@ -39,18 +38,27 @@ function App() {
       setChecking(false);
     };
 
-    if (!loading) verifyAdmin(); 
+    if (!loading) verifyAdmin();
   }, [user, loading]);
 
-  if (checking || loading) return <div>Loading...</div>; 
+  if (checking || loading) return <div>Loading...</div>;
 
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} /> {/* Use HomePage component here */}
-          <Route path="/cards" element={<CardGrid />} />
+          <Route
+            path="/"
+            element={
+              
+              <>
+                <Hero /> {/* Hero section */}
+                <Home /> {/* Home component below the hero */}
+                {/* <CardGrid />  */}
+              </>
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/admin" element={<Navigate to="/login" replace />} />
@@ -63,7 +71,7 @@ function App() {
             }
           />
         </Routes>
-        <Footer />
+        <Footer /> {/* Footer at the bottom */}
       </div>
     </Router>
   );

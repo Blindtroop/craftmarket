@@ -29,8 +29,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-blue-50">
-      <h2 className="text-2xl font-bold text-blue-700 mb-6">Available Cards</h2>
+    <div className="p-6 bg-custom-gray- pt-20">
+      <h2 className="text-2xl font-bold text-custom-dark-gray mb-6 text-center">Our Collection</h2>
       {error && <div className="text-red-600 font-semibold mb-4">{error}</div>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cards.map((card) => (
