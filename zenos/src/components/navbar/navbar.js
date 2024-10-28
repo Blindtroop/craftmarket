@@ -9,7 +9,7 @@ const Navbar = () => {
         className="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black text-custom-orange"
       >
         <img
-          src="https://i.imgur.com/PY2trC2.png" // URL of the car icon
+          src="https://i.imgur.com/jn2PBVY.png" // URL of the car icon
           alt="Car Icon"
           className="mr-2 h-10 w-10" // Adjust the size as needed
         />
@@ -38,10 +38,10 @@ const Navbar = () => {
       >
         <ul className="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
           <li className="font-bold text-custom-orange md:mr-12">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li className="font-bold text-custom-orange md:mr-12">
-            <a href="#">Collection</a>
+            <a href="home">Collection</a>
           </li>
           <li className="md:mr-12">
             <button className="font-bold rounded-full border-2 border-custom-orange px-6 py-1 text-custom-orange transition-colors hover:bg-gray hover:text-red-700">

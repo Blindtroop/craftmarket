@@ -23,14 +23,14 @@ const Footer = () => {
 
     return (
         <footer className="pt-10  bg-gray-900">
-            <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+            <div className="max-w-screen-xl mx-auto px-4 text-custom-orange md:px-8">
                 <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
-                    <img src="https://i.imgur.com/WhAEzgu.png" className="w-32 sm:mx-auto" alt="Logo" />
+                    <img src="https://i.imgur.com/PMVjBLQ.png" className="w-32 sm:mx-auto" alt="Logo" />
                     <p>
                         Nulla auctor metus vitae lectus iaculis, vel euismod massa efficitur.
                     </p>
                     <div className="items-center gap-x-3 space-y-3 sm:flex sm:justify-center sm:space-y-0">
-                        <a href="Home" className="block py-2 px-4 text-center text-white font-medium bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none">
+                        <a href="Home" className="block py-2 px-4 text-center text-custom-orange font-medium bg-black-600 border border-custom-orange duration-150 hover:border-black-900 active:bg-black-9700 rounded-lg shadow-lg hover:shadow-none">
                             Let's View
                         </a>
                        
@@ -41,7 +41,7 @@ const Footer = () => {
                     <ul className="flex flex-wrap items-center gap-4 mt-6 sm:text-sm sm:mt-0">
                         {
                             footerNavs.map((item, idx) => (
-                                <li key={idx} className="text-gray-800 hover:text-gray-500 duration-150">
+                                <li key={idx} className="text-custom-orange hover:text-gray-500 duration-150">
                                     <a href={item.href}>
                                         {item.name}
                                     </a>
