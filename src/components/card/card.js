@@ -16,7 +16,7 @@ const CardComponent = ({ cardData }) => {
       </a>
       <div className="flex items-center justify-between mt-2">
         <span className="text-3xl font-bold text-custom-dark-gray">
-          {cardData.price || "N/A"} {/* Displaying the original price */}
+          {cardData.price || "N/A"} 
         </span>
         <button className="rounded-lg bg-white px-5 py-2.5 text-center border-2 border-b-custom-orange text-sm font-medium text-custom-orange hover:border-custom-orange transition duration-200 ease-in-out">
         Add to cart

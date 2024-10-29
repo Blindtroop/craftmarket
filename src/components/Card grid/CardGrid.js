@@ -7,12 +7,12 @@ const CardGrid = () => {
   useEffect(() => {
     const data = Array.from({ length: 12 }).map((_, index) => ({
       title: `Product ${index + 1}`,
-      imgSrc: "https://i.imgur.com/ItiYQHM.png", // Placeholder image
-      price: (index + 1) * 100000, // Original price value
+      imgSrc: "https://i.imgur.com/ItiYQHM.png", 
+      price: (index + 1) * 100000, 
       rating: 5,
     }));
 
-    console.log(data); // Debugging line
+    
     setCardsData(data);
   }, []);
 
@@ -23,7 +23,7 @@ const CardGrid = () => {
           key={index}
           cardData={{
             ...card,
-            formattedPrice: card.price, // Pass price directly without formatting
+            formattedPrice: card.price, 
           }}
         />
       ))}
