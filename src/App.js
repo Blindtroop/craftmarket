@@ -11,6 +11,7 @@ import Footer from './components/Footer/footer';  // Import Footer
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './components/firebase/config';
 import Loader from './components/Loader/Loader';
+import PaymentPage from './components/Payment Page/PaymentPage';
 import { CartProvider } from './Contexts/CartContext'; // Import Cart Provider
 
 function ProtectedRoute({ children, isAdmin, user }) {
@@ -68,6 +69,7 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/Home" element={<Home />} />
+            <Route path="/checkout" element={<PaymentPage />} />
             <Route path="/admin" element={<Navigate to="/login" replace />} />
             <Route
               path="/Dashboard"

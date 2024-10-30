@@ -1,8 +1,16 @@
 import React from "react";
 import { useCart } from "../../Contexts/CartContext"; // Import the Cart Context
+import { useNavigate } from 'react-router-dom';
 
 const CartDrawer = ({ isOpen, toggleDrawer }) => {
   const { cartItems, removeFromCart, addToCart } = useCart(); // Use the Cart Context
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleCheckout = () => {
+    // Optionally perform any cart validation or updates here
+    navigate('/checkout'); // Navigate to the PaymentPage
+    toggleDrawer(); // Close the drawer
+  };
 
   return (
     <>
@@ -40,7 +48,7 @@ const CartDrawer = ({ isOpen, toggleDrawer }) => {
               ))}
             </ul>
           )}
-          <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Checkout</button>
+          <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"  onClick={handleCheckout}>Checkout</button>
         </div>
       </div>
     </>
