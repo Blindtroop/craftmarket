@@ -10,6 +10,8 @@ import Login from './components/Login/login';
 import Footer from './components/Footer/footer';  // Import Footer
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './components/firebase/config';
+import Loader from './components/Loader/Loader';
+import { CartProvider } from './Contexts/CartContext'; // Import Cart Provider
 
 function ProtectedRoute({ children, isAdmin, user }) {
   if (!user) {
@@ -41,39 +43,45 @@ function App() {
     if (!loading) verifyAdmin();
   }, [user, loading]);
 
-  if (checking || loading) return <div>Loading...</div>;
+  if (checking || loading) 
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader />
+      </div>
+    );
 
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              
-              <>
-                <Hero /> {/* Hero section */}
-                <Home /> {/* Home component below the hero */}
-                {/* <CardGrid />  */}
-              </>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/admin" element={<Navigate to="/login" replace />} />
-          <Route
-            path="/Dashboard"
-            element={
-              <ProtectedRoute user={user} isAdmin={isAdmin}>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-        <Footer /> {/* Footer at the bottom */}
-      </div>
-    </Router>
+    <CartProvider> {/* Wrap your application with CartProvider */}
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero /> {/* Hero section */}
+                  <Home /> {/* Home component below the hero */}
+                  {/* <CardGrid />  */}
+                </>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/Home" element={<Home />} />
+            <Route path="/admin" element={<Navigate to="/login" replace />} />
+            <Route
+              path="/Dashboard"
+              element={
+                <ProtectedRoute user={user} isAdmin={isAdmin}>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+          <Footer /> {/* Footer at the bottom */}
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

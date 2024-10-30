@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase/config"; // Adjust the path as needed
-import { collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "firebase/firestore"; // Import deleteDoc and doc
-import { auth } from "../firebase/config"; // Import auth from config
-import { signOut } from "firebase/auth"; // Import signOut from Firebase
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { db } from "../firebase/config"; 
+import { collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "firebase/firestore"; 
+import { auth } from "../firebase/config"; 
+import { signOut } from "firebase/auth"; 
+import { useNavigate } from "react-router-dom"; 
 
 const Dashboard = () => {
   const [cards, setCards] = useState([]);
@@ -16,7 +16,7 @@ const Dashboard = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   // Function to fetch cards from Firestore
   const fetchCards = async () => {
@@ -50,7 +50,6 @@ const Dashboard = () => {
       setError("Failed to fetch cards. Please try again later.");
     });
 
-    // Cleanup function to unsubscribe from the listener when the component unmounts
     return () => {
       unsubscribe();
     };
@@ -166,7 +165,6 @@ const Dashboard = () => {
         <div className="text-red-600 font-semibold mb-4">{error}</div>
       )}
 
-      {/* Display cards in list format */}
       <ul className="bg-white shadow-md rounded-lg p-6">
         {cards.map((card) => (
           <li key={card.id} className="flex justify-between items-center border-b border-gray-300 py-2">
