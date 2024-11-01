@@ -54,7 +54,7 @@ const CardComponent = ({ cardData, index }) => {
 
   return (
     <>
-      {isSelected && <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>}
+      {/* {isSelected && <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>} */}
 
       <motion.div
         className={`card bg-white rounded-lg p-5 shadow-lg transition-all cursor-pointer ${isSelected ? "opacity-50" : ""}`}
