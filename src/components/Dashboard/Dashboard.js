@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase/config"; 
 import { collection, addDoc, getDocs, onSnapshot, deleteDoc, doc } from "firebase/firestore"; 
@@ -13,6 +11,9 @@ const Dashboard = () => {
     title: "",
     price: "",
     imgSrc: "",
+    country: "",
+    description: "",
+    thumbnails: ["", "", "", ""],
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -56,9 +57,17 @@ const Dashboard = () => {
   }, []);
 
   // Handle form input changes
-  const handleChange = (e) => {
+  const handleChange = (e, index = null) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === "thumbnails" && index !== null) {
+      setFormData((prev) => {
+        const updatedThumbnails = [...prev.thumbnails];
+        updatedThumbnails[index] = value;
+        return { ...prev, thumbnails: updatedThumbnails };
+      });
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   // Handle form submission
@@ -73,7 +82,14 @@ const Dashboard = () => {
     try {
       const docRef = await addDoc(collection(db, "cards"), formData);
       setCards((prevCards) => [...prevCards, { id: docRef.id, ...formData }]);
-      setFormData({ title: "", price: "", imgSrc: "" });
+      setFormData({
+        title: "",
+        price: "",
+        imgSrc: "",
+        country: "",
+        description: "",
+        thumbnails: ["", "", "", ""],
+      });
     } catch (error) {
       console.error("Error adding document: ", error);
       setError("Failed to add card. Please try again.");
@@ -99,9 +115,9 @@ const Dashboard = () => {
   // Handle logout
   const handleLogout = async () => {
     try {
-      await signOut(auth); // Sign out the user
+      await signOut(auth);
       console.log("User signed out successfully");
-      navigate("/login"); // Redirect to the login page after logging out
+      navigate("/login");
     } catch (error) {
       console.error("Error signing out: ", error);
     }
@@ -119,19 +135,17 @@ const Dashboard = () => {
         Logout
       </button>
 
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg p-6 mb-6"
-      >
-        <div className="flex flex-col gap-4 md:flex-row">
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div className="flex flex-col gap-y-4">
           <input
             type="text"
             name="title"
-            placeholder="Card Title"
+            placeholder="Car Name"
             value={formData.title}
             onChange={handleChange}
             required
-            className="border border-blue-300 rounded-md p-3 flex-1 focus:outline-none focus:ring focus:ring-blue-200"
+            className="border border-blue-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200"
           />
           <input
             type="number"
@@ -140,7 +154,7 @@ const Dashboard = () => {
             value={formData.price}
             onChange={handleChange}
             required
-            className="border border-blue-300 rounded-md p-3 flex-1 focus:outline-none focus:ring focus:ring-blue-200"
+            className="border border-blue-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200"
           />
           <input
             type="text"
@@ -149,8 +163,40 @@ const Dashboard = () => {
             value={formData.imgSrc}
             onChange={handleChange}
             required
-            className="border border-blue-300 rounded-md p-3 flex-1 focus:outline-none focus:ring focus:ring-blue-200"
+            className="border border-blue-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200"
           />
+          <input
+            type="text"
+            name="country"
+            placeholder="Country"
+            value={formData.country}
+            onChange={handleChange}
+            required
+            className="border border-blue-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200"
+          />
+          <input
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+            className="border border-blue-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200"
+          />
+
+          {/* Thumbnails */}
+          {Array.isArray(formData.thumbnails) && formData.thumbnails.map((thumbnail, index) => (
+            <input
+              key={index}
+              type="text"
+              name="thumbnails"
+              placeholder={`Thumbnail ${index + 1} URL`}
+              value={thumbnail}
+              onChange={(e) => handleChange(e, index)}
+              required
+              className="border border-blue-300 rounded-md p-3 focus:outline-none focus:ring focus:ring-blue-200"
+            />
+          ))}
         </div>
         <button
           type="submit"
@@ -161,10 +207,12 @@ const Dashboard = () => {
         </button>
       </form>
 
+      {/* Error message */}
       {error && (
         <div className="text-red-600 font-semibold mb-4">{error}</div>
       )}
 
+      {/* Cards list */}
       <ul className="bg-white shadow-md rounded-lg p-6">
         {cards.map((card) => (
           <li key={card.id} className="flex justify-between items-center border-b border-gray-300 py-2">
