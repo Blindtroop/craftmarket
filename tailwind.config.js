@@ -9,6 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'custom-pink': '#AA60C8',
+        'custom-copper': '#FFD700',
         'custom-blue': '#1E3A8A',      // Deep Blue
         'custom-orange': '#F97316',    // Bright Orange
         'custom-gray': '#F3F4F6',      // Light Gray for background

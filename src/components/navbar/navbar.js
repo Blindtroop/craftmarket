@@ -16,17 +16,17 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="relative flex flex-col bg-gray-900 overflow-hidden px-2 py-4 text-custom-orange md:mx-auto md:flex-row md:items-center">
+      <header className="relative flex flex-col bg-custom-pink overflow-hidden px-2 py-4 text-white md:mx-auto md:flex-row md:items-center">
         <a
           href="/"
-          className="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black text-custom-orange"
+          className="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black text-custom-copper"
         >
-          <img
-            src="https://i.imgur.com/jn2PBVY.png"
-            alt="Car Icon"
-            className="mr-2 h-10 w-10"
-          />
-          Zenos
+          {/* <img
+            src={logo}
+            alt="Knit Icon"
+            className="h-12 w-18"
+          /> */}
+          craftmarket
         </a>
         <input type="checkbox" className="peer hidden" id="navbar-open" />
         <label
@@ -50,20 +50,20 @@ const Navbar = () => {
           className="peer-checked:mt-1 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start"
         >
           <ul className="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
-            <li className="font-bold text-custom-orange md:mr-12">
+            <li className="font-bold text-custom-copper md:mr-12">
               <a href="/">Home</a>
             </li>
-            <li className="font-bold text-custom-orange md:mr-12">
+            <li className="font-bold text-custom-copper md:mr-12">
               <a href="/home">Collection</a>
             </li>
             <li className="md:mr-12 relative">
               <button
-                className="font-bold rounded-full border-2 border-custom-orange px-6 py-1 text-custom-orange transition-colors hover:bg-gray hover:text-red-700 relative"
+                className="font-bold rounded-full border-2 border-custom-copper px-6 py-1 text-white transition-colors hover:bg-gray hover:text-red-700 relative"
                 onClick={toggleDrawer}
               >
                 <FaCartPlus className="inline-block" />
                 {/* Display the item count above the cart icon */}
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-red-500 text-custom-copper text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                   {totalItemsInCart > 0 ? totalItemsInCart : 0}
                 </span>
               </button>
